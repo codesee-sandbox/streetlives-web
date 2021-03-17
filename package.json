@@ -43,9 +43,9 @@
     "retry-axios": "^2.2.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint src/ --ext js,jsx",
     "storybook": "start-storybook -p 9009 -s public",
@@ -54,9 +54,12 @@
     "deploy-prod": "REACT_APP_API_URL='https://w6pkliozjh.execute-api.us-east-1.amazonaws.com/prod' REACT_APP_ENVIRONMENT='production' npm run build && aws s3 cp --recursive ./build s3://streetlives-web2/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers &&  aws cloudfront create-invalidation --distribution-id E38C5HBQO22F80 --paths '/*'"
   },
   "devDependencies": {
+    "@codesee/babel-plugin-instrument": "^0.13.1",
+    "@codesee/tracker": "^0.13.1",
     "@storybook/addon-actions": "^3.3.15",
     "@storybook/addon-links": "^3.3.15",
-    "@storybook/react": "^3.3.15"
+    "@storybook/react": "^3.3.15",
+    "react-app-rewired": "^2.1.8"
   },
   "browserslist": [
     ">0.01% in US",
